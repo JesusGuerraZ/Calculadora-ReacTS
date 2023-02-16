@@ -7,13 +7,16 @@ interface Props {
     text: string;
     color?: string;
     ancho?: boolean;
+    accion: ( numeroTexto: string) => void;
 }
 
 //se desestructura la interface anterior
-export const Boton = ({ text, color = '#2D2D2D', ancho = false }: Props) => {
+export const Boton = ({ text, color = '#2D2D2D', ancho = false, accion }: Props) => {
   return (
     //se agrega el touch
-    <TouchableOpacity>
+    <TouchableOpacity
+     onPress={ () => accion( text ) }
+    >
       {/* //Se aplica el cambio dinamico de color a loas botones */}
     <View style={{ ...styles.boton
     , backgroundColor: color
